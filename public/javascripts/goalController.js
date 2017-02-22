@@ -16,7 +16,7 @@ angular.module('goalController', [])
     };
     Goals.create(goalObject).success(function(data) {
       data.percentage = 0;
-      $scope.goals.push(data);
+      $scope.goals.push(goalObject);
       $scope.goalName = '';
     });
   };
