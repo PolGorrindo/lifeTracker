@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -9,8 +10,6 @@
   <script src="/javascripts/goalController.js"></script>
   <script src="/javascripts/goalService.js"></script>
   <script src="/javascripts/front.js"></script>
-  <script type="text/javascript" src="calendarDateInput.js">
-  </script>
 </head>
 <body ng-app="laag" ng-controller="goalCtrl">
   <!-- Fixed navbar -->
@@ -29,8 +28,8 @@
         <ul class="nav navbar-nav">
           <li><a href="index.html">Home</a></li>
           <li><a href="goals.html">Goals</a></li>
-          <li class="active"><a href="#">Track</a></li>
-          <li><a href="analyse.html">Analyse</a></li>
+          <li><a href="tracker.html">Track</a></li>
+          <li class="active"><a href="#">Analyse</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -39,36 +38,23 @@
     <div class="form-horizontal tracker-form">
       <div class="row tracker-heading">
         <div class="col-md-6 col-md-offset-3">
-          <h2>My goals</h2>
+          <h2 align="center">My goals</h2>
         </div>
       </div>
-      <div ng-repeat="goal in goals" class="form-group row form-row">
-        <div class="col-xs-1">
-        </div>
-        <div class="col-xs-9 goal">{{goal.description}} {{goal.result}}
-        </div>
-        <div
-                  class="col-xs-2">
-          <div class="pull-right">
-            <label class="btn btn-success">
-              <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-click="addOk(goal)"></span>
-            </label>
-            <label class="btn btn-danger" ng-class="{btn btn-danger-lg==-1}">
-              <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="addKo(goal)"></span>
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-<div ng-class="¨{'goalss':1==1}">
-        <form ng-submit="addDate()">
-          <div class="row form-row">
-            <div class="col-xs-3">
-              <input type="date" ng-model="day" class="form-control"/></input> {{day}}
-            </div>
-          </div>
-        </form>
+      <div class="ol-xs-10 col-md-offset-1">
 
+      <div ng-repeat="goal in goals" class="form-group row form-row">
+        <div class="col-xs-11,5 col-md-offset-1 goal">{{goal.description}} <div class="pull-right"> <label class="btn btn-success">{{goal.ok}} ok</label>  <label class="btn btn-danger">{{goal.ko}} ko</label> <label class="btn btn-secondary">{{goal.ok}}/{{goal.ko+goal.ok}}</label></div></div></div></div>
+      </div>
+      </form>
+    </div>
+    <form ng-submit="addDate()">
+           <div class="row form-row">
+             <div class="col-xs-3">
+               <input type="date" ng-model="day" class="form-control"/></input> {{day}}
+             </div>
+           </div>
+         </form>
     <hr>
     <footer>
       <p>&copy; 2017 SEK Catalunya</p>
@@ -81,3 +67,4 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
 </body>
+</html>
